@@ -2,46 +2,36 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
 
-
-function Hi (props) {
-  return <div className="name">
-    {/* <strong>Hello{props.mame}</strong>
-    <div className="center">
-<h3>Some Info</h3>
-<ul>
-<li>Name :{props.name}</li>
-<li>F Name :{props.fname}</li>
-<li>Age :{props.age}</li>
-<li>Email :{props.email}</li>
-
-</ul>
-<ul>
-<h3>Some Math Operation</h3>
-  <li>Add :{props.add}{10+10}</li>
-  <li>Minus :{props.minus}{20-10}</li>
-  <li>multiply :{props.multiply}{3*5}</li>
-
-</ul>
-
-
-
-    </div> */}
-    <ul>
-      <li><h2> Title{props.title} </h2></li>
-      <li><p> Text {props.text}</p></li>
-      <li>Imageurl<img src={props.image} /></li>
-
-    </ul>
-    <ul>
-      <li><h2> Title{props.title} </h2></li>
-      <li><p> Text {props.text}</p></li>
-      <li>Imageurl<img src={props.image} /></li>
-
-    </ul>
+function MediaCard({ profilePic, title, time, body, imgUrl }) {
+  return <div>
+    <div className="f-card">
+      <div className="start">
+        <img className="file" src={profilePic} />
+        <div className="co-name"><a href="#">{title}</a></div>
+        <div className="time"><a href="#">{time}</a></div>
+      </div>
+      <div className="content">
+        <p>{body}</p>
+      </div>
+      <div className="ref">
+        <img className="ref1" src={imgUrl} />
+      </div>
+    </div>
   </div>
 }
 ReactDOM.render(
   <>
-<Hi title="alone but happy" text="live happily" image="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg" name="muaaz" fname="abdul qadir" age="21" email="muhammadmuaazmadni@gmail.com" add="{10+10}" minus="{20-10}" multiply="{3*5}" />
-</>,
- document.querySelector('#root'));
+    <MediaCard profilePic="https://i.pinimg.com/originals/e8/e2/bf/e8e2bf947c74c2381088ece748878bd2.jpg"
+      title="Muaaz" time={new Date().toLocaleTimeString()} body="Flowers is very beautiful thing. He make our life charming.I likie it vey much."
+      imgUrl="https://cdn.britannica.com/88/194588-050-967E8D17/flowers.jpg" />
+
+    <MediaCard profilePic="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pakistan_Army_Emblem.png/1200px-Pakistan_Army_Emblem.png"
+      title="Saleh" time={new Date().toLocaleTimeString()} body="Pakistan army is the one best force in world.Every pakistani like it.I proud our force."
+      imgUrl="https://www.ilmkidunya.com/news/newsImages/2021/1/Medium/pak-army-jobs.jpg" />
+
+    <MediaCard profilePic="https://img.collegedekhocdn.com/media/img/careers/doctor-clinic.jpg"
+      title="Hashir" time={new Date().toLocaleTimeString()} body="Doctrate is very best job.He save our life.They work myself every time. He is very responsible."
+      imgUrl="https://www.nm.org/-/media/northwestern/better/nm-find-doctor.jpg?h=540&w=960&la=en&hash=9E9CBA794A065698E253F1087F705599" />
+  </>,
+  document.getElementById('root')
+)
